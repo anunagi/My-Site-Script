@@ -1,6 +1,6 @@
 #!/bin/sh
 
-read -p "Enter site: " site
+read -p "Enter site(no extension): " site
 read -p "Enter extension: " extension
 echo "
 "$"settings['trusted_host_patterns'] = array(
