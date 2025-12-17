@@ -1,15 +1,37 @@
-#!/bin/sh
+#!/bin/bash
 
-read -p "Enter Drush Command: " command
+# Check if command is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 <command>"
+    exit 1
+fi
 
-echo "drush $command -y mainsite"
-drush $command -y
+CMD="$@"
 
-echo "drush $command -y 4pdecor.com"
-drush $command -y --uri=4pdecor.com
+# 1. Run on Default/Main site (no URI)
+echo "========================================"
+echo "Processing Main Site (default)"
+echo "Executing: drush $CMD -y"
+drush $CMD -y
 
-echo "drush $command -y bpcarservice.com"
-drush $command -y --uri=bpcarservice.com
+# 2. Run on all other sites
+SITES_DIR="/opt/bitnami/drupal/sites"
 
-echo "drush $command -y xn--n3cfac0ercx4b8kvc.com"
-drush $command -y --uri=xn--n3cfac0ercx4b8kvc.com
+for site_dir in "$SITES_DIR"/*; do
+    if [ -d "$site_dir" ]; then
+        site_name=$(basename "$site_dir")
+
+        # Skip default (already handled) and non-site dirs if any (like 'all')
+        if [ "$site_name" == "default" ] || [ "$site_name" == "." ] || [ "$site_name" == ".." ]; then
+            continue
+        fi
+        
+        # Check if settings.php exists to be sure it is a site
+        if [ -f "$site_dir/settings.php" ]; then
+             echo "----------------------------------------"
+             echo "Processing site: $site_name"
+             echo "Executing: drush $CMD -y --uri=$site_name"
+             drush $CMD -y --uri="$site_name"
+        fi
+    fi
+done
