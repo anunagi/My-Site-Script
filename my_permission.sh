@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Put this script to /opt/bitnami/drupal/sites
+# Run it like: ./my_permission.sh <site_name> or ./my_permission.sh all
 
 if [ -z "$1" ]; then
   echo "Usage: $0 <site_name|all>"
