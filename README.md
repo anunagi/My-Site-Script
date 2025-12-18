@@ -8,4 +8,4 @@
 
 ./my_drush.sh status หรือ cr หรือ updb หรือ cron    - ทำกับทุกๆ site
 
-# Run it like: ./sites/my_newsite_db.sh <site> <dbname> <dbuser> <dbpass>.
+Run it like: ./sites/my_newsite_db.sh <site> <dbname> <dbuser> <dbpass>.
