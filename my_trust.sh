@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Run it like: ./my_trust.sh <site_name> or ./my_trust.sh all
+
 # Check if argument is provided
 if [ -z "$1" ]; then
     echo "Usage: $0 <site_domain|all>"
