@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Run it like: ./my_drush.sh status หรือ cr หรือ updb หรือ cron - ทำกับทุกๆ site
+
 # Check if command is provided
 if [ -z "$1" ]; then
     echo "Usage: $0 <command>"
