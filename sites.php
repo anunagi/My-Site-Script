@@ -1,3 +1,5 @@
+# ใช้ตัวที่ติดมากับ drupal ใหม่ดีกว่า example.sites.php โดยลบ "example." ออก
+
 <?php
 
 // phpcs:ignoreFile
