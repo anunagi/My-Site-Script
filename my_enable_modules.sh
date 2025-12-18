@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Run it like: ./my_enable_modules.sh <ชื่อ_module> <ชื่อ_module> - ใส่ได้หลาย modules และทำทุกๆ sites ยกเว้น main site
+
 # Check if at least one module name is provided
 if [ -z "$1" ]; then
   echo "Error: No module names provided."
