@@ -9,3 +9,5 @@
 ./my_drush.sh status หรือ cr หรือ updb หรือ cron    - ทำกับทุกๆ site
 
 Run it like: ./sites/my_newsite_db.sh <site> <dbname> <dbuser> <dbpass>.
+
+sites.php ใช้ที่ติดมากับ drupal ดีกว่า example.sites.php ลบ example ออก
