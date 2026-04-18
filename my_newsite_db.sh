@@ -14,20 +14,20 @@ dbuser=$3
 dbuserpass=$4
 
 echo "Creating site directory: $site"
-mkdir -p "$site"
-chmod 777 "$site"
+mkdir -p "../$site"
+chmod 777 "../$site"
 
 echo "Creating files directory"
-mkdir -p "$site/files"
-chmod 777 "$site/files"
+mkdir -p "../$site/files"
+chmod 777 "../$site/files"
 
 echo "Copying services.yml"
-cp default/default.services.yml "$site/services.yml"
-chmod 777 "$site/services.yml"
+cp ../default/default.services.yml "../$site/services.yml"
+chmod 777 "../$site/services.yml"
 
 echo "Copying settings.php"
-cp default/default.settings.php "$site/settings.php"
-chmod 777 "$site/settings.php"
+cp ../default/default.settings.php "../$site/settings.php"
+chmod 777 "../$site/settings.php"
 
 echo "Setting up database '$dbname' for user '$dbuser'"
 mysql -u root -p <<MYSQL_SCRIPT
